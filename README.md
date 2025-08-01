@@ -23,8 +23,7 @@ Acest repository conține scripturi Python compatibile cu **Windows și Linux**,
 - 📦 Nu necesită biblioteci externe (cu excepția `info_retea.py`, care are nevoie de:  
   ```bash
   pip install psutil requests
-  ```  
-  )
+  ```)
 
 ---
 
