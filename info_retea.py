@@ -32,7 +32,7 @@ class C:
 def color(text, culoare):
     return f"{culoare}{text}{C.RESET}" if USE_COLOR else text
 
-# ======= Funcții rețea =======
+# ======= Funcții rețea; =======
 def get_public_ip():
     try:
         with urllib.request.urlopen("https://api.ipify.org", timeout=5) as response:
