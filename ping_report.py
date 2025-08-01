@@ -13,7 +13,7 @@ TIMEOUT_SEC = 2
 # Detectăm sistemul
 IS_WINDOWS = platform.system().lower() == "windows"
 
-# ========= CULOARE =========
+# ========= CULOARE; =========
 def supports_color():
     return sys.stdout.isatty()
 
