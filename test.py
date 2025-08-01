@@ -19,7 +19,7 @@ if not os.path.exists(LOG_DIR):
 
 LOG_FILE_PATH = os.path.join(LOG_DIR, LOG_FILE_NAME)
 
-# ======= UTILITĂȚI CULORI =======
+# ======= UTILITĂȚI CULORI; =======
 def supports_color():
     if not sys.stdout.isatty():
         return False
