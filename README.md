@@ -1,89 +1,87 @@
-# 🌐 Network Utility Scripts
+# 🧪 Network Tools Collection
 
-This repository contains simple and cross-platform Python scripts for basic **network diagnostics** and **connectivity monitoring**. All scripts are tested on both **Windows** and **Linux**.
+A set of cross-platform Python scripts for checking internet connection, gathering local network data, and basic connectivity monitoring. All tools are designed to run on **Windows** and **Linux** using standard Python libraries (with minimal external dependencies).
+
+---
+
+## 📁 Folder Structure
+
+```
+/peseps
+│
+├── test_conexiune.py       # Internet connectivity check using socket (no ping)
+├── ping_report.py          # Ping test to multiple destinations, with CSV logging
+├── info_retea.py           # Display external IP, internal IP, MAC address, hostname
+├── scan_lan.py             # Scan LAN for connected devices with IP and MAC
+├── README.md               # Project documentation (this file)
+```
 
 ---
 
 ## 📜 Available Scripts
 
-| Script              | Description                                                                                       | How to Run                          |
-|---------------------|---------------------------------------------------------------------------------------------------|-------------------------------------|
-| `test_connection.py` | Checks if the system has real internet access using a **TCP socket to `8.8.8.8:53` (DNS)**. No `ping`. Saves a log file. | `python test_connection.py`         |
-| `ping_report.py`     | Pings multiple destinations (`8.8.8.8`, `google.com`, etc.), prints the result and saves a CSV log. | `python ping_report.py`             |
-| `network_info.py`    | Displays the **external IP**, **active network interface**, **MAC address**, and hostname.       | `python network_info.py`            |
-
-> ⚠️ `test_connection.py` avoids using `ping` and instead relies on a **reliable TCP socket test**, which works even in restrictive network environments (e.g. firewalled ICMP).
+| Script              | Description                                                                                 | Run Command                  |
+|---------------------|---------------------------------------------------------------------------------------------|------------------------------|
+| `test_conexiune.py` | Checks internet connection using TCP socket to `8.8.8.8:53`. Logs result to a `.txt` file.  | `python test_conexiune.py`  |
+| `ping_report.py`    | Sends pings to several destinations, logs response times to `.csv` on Desktop.              | `python ping_report.py`     |
+| `info_retea.py`     | Displays internal & external IP, hostname, and MAC of the active network interface.         | `python info_retea.py`      |
+| `scan_lan.py`       | Scans the local network to detect connected devices, showing IP and MAC addresses.          | `python scan_lan.py`        |
 
 ---
 
 ## 🧰 Requirements
 
-- Python **3.x** installed
-- Scripts work on **Windows** and **Linux**
-- Only one script (`network_info.py`) requires the external module `psutil` (see below)
+- Python 3.x installed
+- Works on **Windows** and **Linux**
+- Requires the `psutil` module (`info_retea.py` only)
 
----
-
-## 📂 Logs Generated
-
-| Script              | Output File                         | Location     |
-|---------------------|--------------------------------------|--------------|
-| `test_connection.py` | `log_connection.txt` (text format)   | Saved to Desktop |
-| `ping_report.py`     | `ping_log.csv` (CSV format)          | Saved to Desktop |
-
----
-
-## ⚙️ Configurability
-
-Some scripts accept configuration via **environment variables**:
-
-| Variable        | Description                         | Example              |
-|------------------|-------------------------------------|-----------------------|
-| `CHECK_HOST`      | IP or hostname to check connection | `8.8.4.4`             |
-| `CHECK_PORT`      | Port number for socket check       | `53`                  |
-| `LOG_DIR`         | Where to save log files            | `/home/user/logs`     |
-
-These variables are **optional**. Default values are used if they are not set.
-
----
-
-## 🧱 Folder Structure
-
-```
-peseps/
-├── test_connection.py     # Checks internet via TCP socket
-├── ping_report.py         # Pings multiple addresses and logs
-├── network_info.py        # Shows external IP, MAC, interface
-└── README.md              # Project documentation
+```bash
+pip install psutil
 ```
 
 ---
 
-## 💡 Tips
+## 📂 Log Files
 
-- Scripts can be scheduled via:
-  - `cron` (Linux/macOS)
-  - `Task Scheduler` (Windows)
-- Useful for **offline diagnostics**, **monitoring**, or **network logging**.
+- `test_conexiune.py`: writes `log_conexiune.txt` on the **Desktop** with connection status.
+- `ping_report.py`: creates a `ping_log.csv` on the **Desktop** with ping results.
+- `scan_lan.py`: optionally prints/export scanned devices.
 
 ---
 
-## 🤝 Contributing
+## ⚙️ Environment Variables
 
-Want to add new features or scripts? Contributions are welcome!
+You can customize behavior using environment variables:
 
-- Fork this repo
-- Submit a pull request
-- Or open an issue with ideas or improvements
+| Variable       | Default     | Description                          |
+|----------------|-------------|--------------------------------------|
+| `CHECK_HOST`   | `8.8.8.8`   | Host used in socket test             |
+| `CHECK_PORT`   | `53`        | Port used in socket test             |
+| `CHECK_TIMEOUT`| `3`         | Timeout in seconds                   |
+| `LOG_DIR`      | Desktop     | Where logs are saved                 |
+
+---
+
+## 💡 Suggestions
+
+- You can schedule these scripts with **cron** (Linux) or **Task Scheduler** (Windows).
+- Adapt logging directories or output formats depending on your workflow.
+- Add automation for alerts (e.g., email or webhook on disconnect).
+
+---
+
+## 🤝 Contributions
+
+Feel free to contribute new tools or improvements – the goal is to expand this repo with useful network utilities. Forks and pull requests are welcome!
 
 ---
 
 ## 🔒 License
 
-This project is open-source and distributed under the **MIT License**. Use, modify, and share freely.
+This project is **open-source**, licensed under the MIT license. You’re free to use, modify, and share.
 
 ---
 
-## 📞 Contact
+## 📬 Contact
 
-Made with 💻 by [Bogdan Eftenie](https://github.com/bogdaneftenie)
+For updates, feedback, or ideas, visit: [github.com/bogdaneftenie](https://github.com/bogdaneftenie)
