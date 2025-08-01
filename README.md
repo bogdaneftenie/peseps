@@ -9,7 +9,7 @@ A set of cross-platform Python scripts for checking internet connection, gatheri
 ```
 /peseps
 │
-├── test_conexiune.py       # Internet connectivity check using socket (no ping)
+├── test_.py                # Internet connectivity check using socket (no ping)
 ├── ping_report.py          # Ping test to multiple destinations, with CSV logging
 ├── info_retea.py           # Display external IP, internal IP, MAC address, hostname
 ├── scan_lan.py             # Scan LAN for connected devices with IP and MAC
@@ -22,10 +22,10 @@ A set of cross-platform Python scripts for checking internet connection, gatheri
 
 | Script              | Description                                                                                 | Run Command                  |
 |---------------------|---------------------------------------------------------------------------------------------|------------------------------|
-| `test_conexiune.py` | Checks internet connection using TCP socket to `8.8.8.8:53`. Logs result to a `.txt` file.  | `python test_conexiune.py`  |
-| `ping_report.py`    | Sends pings to several destinations, logs response times to `.csv` on Desktop.              | `python ping_report.py`     |
-| `info_retea.py`     | Displays internal & external IP, hostname, and MAC of the active network interface.         | `python info_retea.py`      |
-| `scan_lan.py`       | Scans the local network to detect connected devices, showing IP and MAC addresses.          | `python scan_lan.py`        |
+| `test.py`           | Checks internet connection using TCP socket to `8.8.8.8:53`. Logs result to a `.txt` file.  | `python test_conexiune.py`   |
+| `ping_report.py`    | Sends pings to several destinations, logs response times to `.csv` on Desktop.              | `python ping_report.py`      |
+| `info_retea.py`     | Displays internal & external IP, hostname, and MAC of the active network interface.         | `python info_retea.py`       |
+| `scan_lan.py`       | Scans the local network to detect connected devices, showing IP and MAC addresses.          | `python scan_lan.py`         |
 
 ---
 
@@ -43,7 +43,7 @@ pip install psutil
 
 ## 📂 Log Files
 
-- `test_conexiune.py`: writes `log_conexiune.txt` on the **Desktop** with connection status.
+- `test.py`: writes `log_conexiune.txt` on the **Desktop** with connection status.
 - `ping_report.py`: creates a `ping_log.csv` on the **Desktop** with ping results.
 - `scan_lan.py`: optionally prints/export scanned devices.
 
